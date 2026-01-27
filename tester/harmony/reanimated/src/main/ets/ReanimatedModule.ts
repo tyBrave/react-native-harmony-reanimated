@@ -35,4 +35,11 @@ export class ReanimatedModule extends TurboModule {
     windowInstance.off('keyboardHeightChange', (v) => {
     })
   }
+  
+  public setGestureHandlerState(handlerTag: Tag, newState: number) {
+    const module = this.ctx.rnInstance.getTurboModule("RNGestureHandlerModule") as any;
+    if (module && module.setGestureHandlerState) {
+      module.setGestureHandlerState(handlerTag, newState);
+    }
+  }
 }
